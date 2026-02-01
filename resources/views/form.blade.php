@@ -25,7 +25,7 @@
 <header class="bg-white border-b">
     <div class="max-w-6xl mx-auto px-6 md:px-16 h-[72px] flex items-center justify-between">
         <img
-            src="{{ asset('img/tg.png') }}"
+            src="{{ asset('storage/img/tg.png') }}"
             alt="Tunas Digital"
             class="h-[42px] w-auto"
         >
@@ -41,7 +41,7 @@
     <!-- DOODLE KIRI -->
     <div class="hidden md:block absolute left-0 bottom-0 z-0 pointer-events-none">
         <img
-            src="{{ asset('img/doodle_left.png') }}"
+            src="{{ asset('storage/img/doodle_left.png') }}"
             alt="Doodle kiri"
             class="w-[200px] lg:w-[240px] opacity-90"
         >
@@ -50,7 +50,7 @@
     <!-- DOODLE KANAN -->
     <div class="hidden md:block absolute right-0 bottom-0 z-0 pointer-events-none">
         <img
-            src="{{ asset('img/doodle_right.png') }}"
+            src="{{ asset('storage/img/doodle_right.png') }}"
             alt="Doodle kanan"
             class="w-[180px] lg:w-[220px] opacity-90"
         >

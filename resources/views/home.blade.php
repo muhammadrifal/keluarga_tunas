@@ -37,7 +37,7 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <img
-                    src="{{ asset('img/tg.png') }}"
+                    src="{{ asset('storage/img/tg.png') }}"
                     alt="Tunas Digital"
                     class="h-[40px] w-auto"
                 >
@@ -58,7 +58,7 @@
 
         <!-- Background atas (kuning + ilustrasi) -->
         <img
-            src="{{ asset('img/path1.png') }}"
+            src="{{ asset('storage/img/path1.png') }}"
             alt=""
             class="w-full h-auto block"
         >
@@ -109,7 +109,7 @@
             </div>
 
             <div class="relative w-full flex justify-center py-6">
-                <img src='{{ asset("img/path43.png") }}'/>
+                <img src='{{ asset("storage/img/path43.png") }}'/>
             </div>
 
             <div class="flex flex-wrap justify-center gap-4 mt-10">
