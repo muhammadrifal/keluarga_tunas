@@ -155,11 +155,17 @@
 
                         <div class="mt-8">
                             <button
-                            type="submit"
-                            class="w-full bg-black text-white py-4 rounded-full text-[16px] md:text-[18px] font-extrabold tracking-wide shadow-lg hover:bg-gray-900 transition"
+                                type="submit"
+                                id="submitBtn"
+                                class="w-full bg-black text-white py-4 rounded-full text-[16px] md:text-[18px] font-extrabold tracking-wide shadow-lg hover:bg-gray-900 transition flex items-center justify-center gap-3"
                             >
-                            Daftar sebagai Keluarga Tunas
-                        </button>
+                                <svg id="spinner" class="hidden w-5 h-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                                </svg>
+
+                                <span id="btnText">Daftar sebagai Keluarga Tunas</span>
+                            </button>
                     </form>
                 </div>
                 </div>
