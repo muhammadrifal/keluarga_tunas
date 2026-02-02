@@ -1,3 +1,14 @@
+@php
+    $agents = collect($data)->keyBy('id');
+
+    $sumatra     = $agents[1]->total_agents ?? 0;
+    $jawa        = $agents[2]->total_agents ?? 0;
+    $kalimantan  = $agents[3]->total_agents ?? 0;
+    $sulawesi    = $agents[4]->total_agents ?? 0;
+    $baliNusa    = $agents[5]->total_agents ?? 0;
+    $malukuPapua = ($agents[6]->total_agents ?? 0) + ($agents[7]->total_agents ?? 0);
+@endphp
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -95,15 +106,17 @@
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-wrap justify-center gap-4 mb-10">
                 <div class="counter-box">
-                    <div class="text-2xl font-bold">0.000</div>
+                    <div class="text-2xl font-bold counter" data-target="{{ $sumatra }}">0</div>
                     <div class="text-[10px] uppercase font-bold tracking-[0.15em] opacity-80">Sumatra</div>
                 </div>
+
                 <div class="counter-box">
-                    <div class="text-2xl font-bold">0.000</div>
+                    <div class="text-2xl font-bold counter" data-target="{{ $kalimantan }}">0</div>
                     <div class="text-[10px] uppercase font-bold tracking-[0.15em] opacity-80">Kalimantan</div>
                 </div>
+
                 <div class="counter-box">
-                    <div class="text-2xl font-bold">0.000</div>
+                    <div class="text-2xl font-bold counter" data-target="{{ $malukuPapua }}">0</div>
                     <div class="text-[10px] uppercase font-bold tracking-[0.15em] opacity-80">Maluku & Papua</div>
                 </div>
             </div>
@@ -114,41 +127,91 @@
 
             <div class="flex flex-wrap justify-center gap-4 mt-10">
                 <div class="counter-box">
-                    <div class="text-2xl font-bold">0.000</div>
+                    <div class="text-2xl font-bold counter" data-target="{{ $jawa }}">0</div>
                     <div class="text-[10px] uppercase font-bold tracking-[0.15em] opacity-80">Jawa</div>
                 </div>
+
                 <div class="counter-box">
-                    <div class="text-2xl font-bold">0.000</div>
+                    <div class="text-2xl font-bold counter" data-target="{{ $baliNusa }}">0</div>
                     <div class="text-[10px] uppercase font-bold tracking-[0.15em] opacity-80">Bali & Nusa Tenggara</div>
                 </div>
+
                 <div class="counter-box">
-                    <div class="text-2xl font-bold">0.000</div>
+                    <div class="text-2xl font-bold counter" data-target="   {{ $sulawesi }}">0</div>
                     <div class="text-[10px] uppercase font-bold tracking-[0.15em] opacity-80">Sulawesi</div>
                 </div>
             </div>
         </div>
 
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mt-24">
+
             <div class="bg-white rounded-[24px] p-10 shadow-lg">
-                <p class="text-tunas-orange font-bold text-[11px] uppercase tracking-widest mb-3 leading-tight">Keluarga Tunas<br>Terdaftar</p>
-                <p class="text-[64px] font-[900] leading-none text-black tracking-tighter">000.000</p>
+                <p class="text-tunas-orange font-bold text-[11px] uppercase tracking-widest mb-3 leading-tight">
+                    Keluarga Tunas Terdaftar
+                </p>
+                <p class="text-[64px] font-[900] leading-none tracking-tighter counter"
+                data-target="{{ $totalAgents }}">0</p>
             </div>
+
             <div class="bg-white rounded-[24px] p-10 shadow-lg">
-                <p class="text-tunas-orange font-bold text-[11px] uppercase tracking-widest mb-3">Provinsi</p>
-                <p class="text-[64px] font-[900] leading-none text-black tracking-tighter">00</p>
+                <p class="text-tunas-orange font-bold text-[11px] uppercase tracking-widest mb-3">
+                    Provinsi
+                </p>
+                <p class="text-[64px] font-[900] leading-none tracking-tighter counter"
+                data-target="{{ $provincesWithAgents }}">0</p>
             </div>
+
             <div class="bg-white rounded-[24px] p-10 shadow-lg">
-                <p class="text-tunas-orange font-bold text-[11px] uppercase tracking-widest mb-3 leading-tight">Kabupaten<br>& Kota</p>
-                <p class="text-[64px] font-[900] leading-none text-black tracking-tighter">000</p>
+                <p class="text-tunas-orange font-bold text-[11px] uppercase tracking-widest mb-3 leading-tight">
+                    Kabupaten & Kota
+                </p>
+                <p class="text-[64px] font-[900] leading-none tracking-tighter counter"
+                data-target="{{ $regenciesWithAgents }}">0</p>
             </div>
+
         </div>
+
     </section>
 
-    <footer class="bg-[#111111] text-white py-5 px-6 md:px-16">
-        <div class="text-white mt-5 pt-8 border-t border-gray-900 text-center text-[10px] text-gray-600 tracking-[0.3em] uppercase">
-            © 2025 Kementerian Komunikasi dan Digital Republik Indonesia
-        </div>
-    </footer>
+        <footer class="bg-[#111111] text-white py-6 px-6 md:px-16">
+            <div class="text-center text-[10px] text-white-600 tracking-[0.3em] uppercase">
+                © 2026 Kementerian Komunikasi dan Digital Republik Indonesia
+            </div>
+        </footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+
+    const animateCounter = (counter) => {
+        const target = +counter.dataset.target;
+        const duration = 1500;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const value = Math.floor(progress * target);
+            counter.innerText = value.toLocaleString("id-ID");
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
+    };
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => observer.observe(counter));
+});
+</script>
 
 </body>
 </html>
