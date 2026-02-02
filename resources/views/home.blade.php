@@ -101,7 +101,11 @@
     </section>
 
     <section class="bg-tunas-orange py-20 px-6 relative">
-        <h2 class="text-3xl md:text-4xl font-[800] text-white text-center mb-16 tracking-tight">Peta Persebaran Keluarga Tunas</h2>
+<h2 class="text-3xl md:text-4xl font-[800] text-white text-center
+           mt-40 sm:mt-32 md:mt-0
+           mb-16 tracking-tight">
+    Peta Persebaran Keluarga Tunas
+</h2>
 
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-wrap justify-center gap-4 mb-10">
@@ -173,11 +177,11 @@
 
     </section>
 
-        <footer class="bg-[#111111] text-white py-6 px-6 md:px-16">
-            <div class="text-center text-[10px] text-white-600 tracking-[0.3em] uppercase">
-                © 2026 Kementerian Komunikasi dan Digital Republik Indonesia
-            </div>
-        </footer>
+    <footer class="bg-[#111111] text-white py-6 px-6 md:px-16">
+        <div class="text-center text-[10px] text-white-600 tracking-[0.3em] uppercase">
+            © 2026 Kementerian Komunikasi dan Digital Republik Indonesia
+        </div>
+    </footer>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll(".counter");
