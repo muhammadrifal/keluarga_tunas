@@ -80,23 +80,32 @@
         <!-- Card putih -->
         <div class="absolute inset-0 flex justify-center items-start
             pt-[90px] md:pt-[140px] lg:pt-[180px]
-            px-4 md:px-6" style='z-index:1000;'>
-            <div class="max-w-3xl w-full bg-white rounded-[32px] p-10 md:p-14 text-center shadow-xl">
-                <h1 class="text-3xl md:text-4xl font-[800] mb-4 text-black">
+            px-4 md:px-6" style="z-index:1000;">
+
+            <div class="max-w-3xl w-full bg-white rounded-[32px] p-10 md:p-14 text-center shadow-2xl border border-black/10">
+
+                <!-- Headline -->
+                <h1 class="text-3xl md:text-4xl font-[900] mb-3 text-black leading-tight">
                     Keluarga Tunas
                 </h1>
 
                 <p class="text-[#444] text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
-                    Dengan menjadi Keluarga Tunas, peserta yang terdaftar akan mendapatkan akses
-                    konten eksklusif seputar perlindungan anak di ruang digital, perkembangan
-                    penerapan PP Tunas, dan konten Tunas Digital menarik lainnya.
+
+                Jadilah bagian dari <span class="font-semibold text-black">Keluarga Tunas</span> untuk mengakses konten eksklusif, mengikuti perkembangan PP Tunas, dan berkontribusi langsung dalam gerakan perlindungan anak di ruang digital bersama ekosistem Tunas Digital.
+                <br><span class="font-semibold text-black">Yuk Bergabung Sekarang!</span>
                 </p>
 
-                <a href='{{ route("agen_tunas") }}' class="bg-black text-white px-8 py-3 rounded-full font-bold text-sm">
+
+                <!-- CTA -->
+                <a href="{{ route('agen_tunas') }}"
+                class="inline-flex items-center gap-2 bg-black text-white px-10 py-4 rounded-full font-bold text-sm md:text-base
+                        hover:bg-gray-900 transition-all duration-200 shadow-lg">
                     Daftar sebagai Keluarga Tunas
+                    <span class="text-lg">→</span>
                 </a>
             </div>
         </div>
+
 
     </section>
 
