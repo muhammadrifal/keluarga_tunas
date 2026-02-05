@@ -101,7 +101,7 @@
                 <a href="{{ route('agen_tunas') }}"
                 class="inline-flex items-center gap-2 bg-black text-white px-10 py-4 rounded-full font-bold text-sm md:text-base
                         hover:bg-gray-900 transition-all duration-200 shadow-lg">
-                    Daftar sebagai Keluarga Tunas
+                    Daftar Sekarang
                     <span class="text-lg">→</span>
                 </a>
             </div>
