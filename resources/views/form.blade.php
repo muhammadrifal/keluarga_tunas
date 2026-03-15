@@ -120,17 +120,17 @@
                             <p class="text-red-600 text-[12px] mt-1 hidden" id="error-age"></p>
                         </div>
 
-                        <!-- Nomor Telepon -->
+                        <!-- Email -->
                         <div class="bg-white rounded-[16px] px-6 py-5">
-                            <label class="text-[13px] font-semibold block mb-2">Nomor Telepon</label>
+                            <label class="text-[13px] font-semibold block mb-2">Email</label>
                             <input
-                                type="tel"
-                                name="phone"
-                                id="phone"
-                                placeholder="08xxxxxxxxxx"
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="contoh@email.com"
                                 class="w-full text-[14px] outline-none border-b border-orange-400 focus:border-orange-600 pb-2"
                             />
-                            <p class="text-red-600 text-[12px] mt-1 hidden" id="error-phone"></p>
+                            <p class="text-red-600 text-[12px] mt-1 hidden" id="error-email"></p>
                         </div>
 
                         <!-- Provinsi -->
@@ -211,7 +211,7 @@
 
             const nameInput      = document.getElementById('name');
             const ageInput       = document.getElementById('age');
-            const phoneInput     = document.getElementById('phone');
+            const emailInput     = document.getElementById('email');
             const provinceSelect = document.getElementById('province');
             const regencySelect  = document.getElementById('regency');
 
@@ -247,11 +247,11 @@
                 e.preventDefault();
 
                 // reset semua error
-                ['name','gender','age','phone','province','regency'].forEach(clearError);
+                ['name','gender','age','email','province','regency'].forEach(clearError);
 
                 const name     = nameInput.value.trim();
                 const age      = ageInput.value;
-                const phone    = phoneInput.value.trim();
+                const email    = emailInput.value.trim();
                 const province = provinceSelect.value;
                 const regency  = regencySelect.value;
                 const genderEl = document.querySelector('input[name="gender"]:checked');
@@ -275,11 +275,11 @@
                     valid = false;
                 }
 
-                if (!phone) {
-                    showError('phone', 'Nomor telepon wajib diisi');
+                if (!email) {
+                    showError('email', 'Email wajib diisi');
                     valid = false;
-                } else if (!/^08[0-9]{8,11}$/.test(phone)) {
-                    showError('phone', 'Format nomor telepon tidak valid');
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showError('email', 'Format email tidak valid');
                     valid = false;
                 }
 
@@ -307,7 +307,7 @@
                             name,
                             gender: genderEl.value,
                             age,
-                            phone,
+                            email,
                             province_id: province,
                             regency_id: regency
                         })

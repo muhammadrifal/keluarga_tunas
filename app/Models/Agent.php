@@ -12,6 +12,7 @@ class Agent extends Model
         'jenis_kelamin',
         'usia',
         'nomor_telepon',
+        'email',
         'province_id',
         'regency_id'
     ];

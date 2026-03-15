@@ -68,7 +68,7 @@ class FormKeluargaTunasController extends Controller
                     'name'        => 'required|string|min:3|max:100',
                     'gender'      => 'required|in:L,P',
                     'age'         => 'required|integer|min:10|max:80',
-                    'phone'       => 'required|unique:agents,nomor_telepon|regex:/^08[0-9]{8,11}$/',
+                    'email'       => 'required|email|unique:agents,email',
                     'province_id' => 'required|exists:provinces,id',
                     'regency_id'  => 'required|exists:regencies,id',
                 ],
@@ -89,10 +89,10 @@ class FormKeluargaTunasController extends Controller
                     'age.min'      => 'Usia minimal 10 tahun',
                     'age.max'      => 'Usia maksimal 80 tahun',
 
-                    // PHONE
-                    'phone.required' => 'Nomor telepon wajib diisi',
-                    'phone.unique'   => 'Nomor telepon sudah terdaftar',
-                    'phone.regex'    => 'Format nomor telepon tidak valid (contoh: 08xxxxxxxxxx)',
+                    // EMAIL
+                    'email.required' => 'Email wajib diisi',
+                    'email.email'    => 'Format email tidak valid',
+                    'email.unique'   => 'Email sudah terdaftar',
 
                     // PROVINCE
                     'province_id.required' => 'Provinsi wajib dipilih',
@@ -116,7 +116,7 @@ class FormKeluargaTunasController extends Controller
                 'nama'          => $request->name,
                 'jenis_kelamin' => $request->gender,
                 'usia'          => $request->age,
-                'nomor_telepon' => $request->phone,
+                'email'         => $request->email,
                 'province_id'   => $request->province_id,
                 'regency_id'    => $request->regency_id,
             ]);
